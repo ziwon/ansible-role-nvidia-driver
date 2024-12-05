@@ -1,0 +1,10 @@
+Package: {{ nvidia_driver_ubuntu_cuda_package }}
+Pin: version {{ nvidia_driver_cuda_package_version }}
+Pin-Priority: 1001
+
+{% for nvidia_driver_ubuntu_package in nvidia_driver_ubuntu_packages %}
+Package: {{ nvidia_driver_ubuntu_package }}
+Pin version {{ nvidia_driver_package_version }}
+Pin-Priority: 1001
+
+{% endfor %}

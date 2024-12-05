@@ -33,6 +33,14 @@
     name: nouveau
     state: present
 
+- name: template in the pinned packages
+  template:
+    src: "nvidia-hold.j2"
+    dest: "/etc/apt/preferences.d/nvidia-hold"
+    owner: "root"
+    group: "root"
+    mode: "0644"
+
 - name: install driver packages
   apt:
     name: "{{ nvidia_driver_package_version | ternary(item+'='+nvidia_driver_package_version, item) }}"
